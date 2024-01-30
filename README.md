@@ -18,9 +18,12 @@
 # Methods
 
 ## Dependencies
+This program requires the following depencies:
+- MATLAB (version???)
 
 ## Create a Dataset
-
+This program requires the following for each subject: 
+- T1-weighted MRI Volume
 
 ## Pre-processing
 
