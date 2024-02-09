@@ -12,6 +12,7 @@
 ## Dependencies
 This program requires the following dependencies:
 - MATLAB (ver. R2023a)
+  - iso2mesh Library
 - FreeSurfer
 - Linux Environment
 
@@ -20,7 +21,10 @@ This program requires the following for each subject:
 - T1-weighted MRI Volume
 
 ## T1 Pre-processing: preprocess_T1.m
-
+Before running the above code, ensure the following:
+- addpath leads to tFUS library (line 13)
+- addpath leads to iso2meth (line 14)
+- t1filepath = 'T1.nii.gz'; 
 
 
 ## Pre-Calculation Walkthrough: precalculations_GUI_Fin.mlapp
