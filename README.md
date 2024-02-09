@@ -1,14 +1,6 @@
 # tFUS_neuronavigation
 
-**Background:** Transcranial focused ultrasound (tFUS) neuromodulation has shown promise in animals but is hard to translate to humans because of the thicker skull that absorbs and scatters ultrasound waves. 
-
 **Objective:** We develop and disseminate a model-based navigation (MBN) tool for acoustic dose delivery in the presence of skull aberrations that is easy to use by non-specialists.   
-
-**Methods:** We pre-compute acoustic beams for thousands of virtual transducer locations on the scalp of the subject under study. We use the hybrid angular spectrum solver mSOUND which runs in ~4 seconds per solve per CPU, yielding pre computation times under one hour for scalp meshes with up to 4,000 faces and a parallelization factor of 5. We combine this pre-computed set of solutions with optical tracking of the transducer, allowing real-time display of the tFUS beam as the operator freely moves the transducer. We assess the impact of MBN versus line-of-sight targeting (LOST) positioning in 13 test subject simulations.
-
-**Results:** Our navigation tool has a display refresh rate of ~2 Hz. In our simulations, MBN increased the acoustic dose in the thalamus and amygdala of the test subjects by 22-137% compared to LOST and avoided complete target misses that affected 10-20% of LOST cases. MBN yielded a lower variability of the deposited dose across subjects than LOST.
-
-**Conclusions:** MBN may yield greater and more consistent (less variable) ultrasound dose deposition than LOST, and therefore has the potential to improve the significance and variability of outcome measures of tFUS neuromodulation. 
 
 **Please cite our paper at:**
 
@@ -31,7 +23,38 @@ This program requires the following for each subject:
 x = code?
 ```
 
-## GUI Walkthrough
+## Pre-Calculation Walkthrough
+Start the GUI by running "precalculations_GUI_Fin.mlapp" in the MATLAB Command Window
+
+<img width="920" alt="Screen Shot 2024-02-09 at 9 35 22 AM" src="https://github.com/parkerkotlarz/tFUS_neuronavigation/assets/157265957/f148ea3f-36ce-40d8-bae4-f0b828fda13c">
+
+Follow the steps below,
+1. Load Data
+   - Click "Browse head mask" to load hmask.mat
+   - Click "Browse porosity" to load poro.mat
+   - Click "Browse ASEG" to aseg.mat
+2. Generate Mesh
+   - Click "Generate Head Mesh"
+     - Modify edge length based on desire preferences (Preset of 8 mm)
+   - Click "Remove invalid faces"
+     - Draw a line above the eyes/ears to remove those faces from the mesh
+   - Make sure normals point away from the head
+     - Click "Show Normals" and ensure all red arrows point outward
+     - Additionally click "Invert Normas" and ensure all red arrows point inside the mesh
+3. Choose Transducer Model
+   - Click a preset transducer **or**
+   - Define Transducer Parameters
+     - Focal Distance (mm)
+     - Aperture Diameter (mm)
+     - Distance to Scalp (mm)
+     - Frequency (KHz)
+4. Run Acoustic Intensity Calculations
+   -  Pick the "Number of parallel processing units" (Preset of 10)
+   -  Type the "Simulation folder name," with the full path preferred
+   -  Click "Run"
+  
+   
+     
 
 ## Pre-computation of Acoustic Beams
 
