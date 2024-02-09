@@ -10,21 +10,21 @@
 # Methods
 
 ## Dependencies
-This program requires the following depencies:
-- MATLAB (version???)
+This program requires the following dependencies:
+- MATLAB (ver. R2023a)
+- FreeSurfer
+- Linux Environment
 
 ## Create a Dataset
 This program requires the following for each subject: 
 - T1-weighted MRI Volume
 
-## Pre-processing
+## T1 Pre-processing: preprocess_T1.m
 
-```MATLAB
-x = code?
-```
 
-## Pre-Calculation Walkthrough
-Start the GUI by running "precalculations_GUI_Fin.mlapp" in the MATLAB Command Window
+
+## Pre-Calculation Walkthrough: precalculations_GUI_Fin.mlapp
+Start the GUI by running "precalculations_GUI_Fin" in the MATLAB Command Window
 
 <img width="920" alt="Screen Shot 2024-02-09 at 9 35 22 AM" src="https://github.com/parkerkotlarz/tFUS_neuronavigation/assets/157265957/f148ea3f-36ce-40d8-bae4-f0b828fda13c">
 
