@@ -10,11 +10,7 @@
 # Methods
 
 ## Dependencies
-This program requires the following dependencies:
-- MATLAB (ver. R2023a)
-  - iso2mesh Library
-- FreeSurfer
-- Linux Environment
+This program requires the following dependencies: MATLAB (ver. R2023a), iso2mesh Library, FreeSurfer, and a Linux Environment.
 
 ## Create a Dataset
 This program requires the following for each subject: 
