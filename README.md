@@ -113,6 +113,9 @@ Start the GUI by running "precalculations_GUI_Fin" in the MATLAB Command Window
 
 
 
+<img width="315" alt="Screen Shot 2024-02-14 at 6 53 30 PM" src="https://github.com/parkerkotlarz/tFUS_neuronavigation/assets/157265957/25ef4242-56c0-4f22-a345-f406209d4c91">
+
+
 
 ### Step 2: Generate Mesh
 
@@ -153,7 +156,6 @@ Follow the steps below,
    
      
 
-## Pre-computation of Acoustic Beams
 
 ## Real-time tFUS Neuronavigation
 
