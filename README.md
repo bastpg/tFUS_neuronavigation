@@ -134,8 +134,7 @@ In this step, pick the number of parallel processing units and indicate the file
 The output folder should include four .mat files: app_data, mSOUND_inputs, SOL_Beams, SOL_ScalpMaps. app_data.mat and mSOUND_inputs.mat are both input files into the pre-calculation. SOL_Beams.mat is the largest file (a few GB depending on the density of the mesh) and stores the beam calculations. SOL_ScalpMaps.mat includes the scalp maps generated from the beams.
      
 
-
-## Real-time tFUS Neuronavigation
+## Neuronavigation Planning GUI: planning_GUI_Fin.mlapp
 
 
 # References
