@@ -110,17 +110,24 @@ Start the GUI by running "precalculations_GUI_Fin" in the MATLAB Command Window
 <img width="920" alt="Screen Shot 2024-02-09 at 9 35 22 AM" src="https://github.com/parkerkotlarz/tFUS_neuronavigation/assets/157265957/f148ea3f-36ce-40d8-bae4-f0b828fda13c">
 
 ### Step 1: Load Data
+First, load the data. The indicators next to each button should turn green after the file is loaded. Then, use the display to check for any inconsitences or mistakes with the headmask, porosity, and aseg files.
 
-
-
-<img width="315" alt="Screen Shot 2024-02-14 at 6 53 30 PM" src="https://github.com/parkerkotlarz/tFUS_neuronavigation/assets/157265957/25ef4242-56c0-4f22-a345-f406209d4c91">
-
+<img width="763" alt="Screen Shot 2024-02-15 at 6 56 24 AM" src="https://github.com/parkerkotlarz/tFUS_neuronavigation/assets/157265957/8a4d9566-88ab-4075-8946-18d0a7fb5660">
 
 
 ### Step 2: Generate Mesh
+This step generates the mesh. The edge length is the average length of triangle discretization of the scalp mesh. In other words, a small edge length (4 mm) yields dense discrete triangles while a large edge length (16 mm) yields a coarse mesh. We have found 8 mm balances the accuracy of a dense mesh with computational efficiency of a course mesh. After generating the mesh, remove the faces below and including the ears and eyes. This should ideally yield a mesh with 2000-3000 faces. Lastly, check that all normals are pointing away from the mesh. 
+
+
+<img width="1405" alt="Screen Shot 2024-02-15 at 7 05 35 AM" src="https://github.com/parkerkotlarz/tFUS_neuronavigation/assets/157265957/ea73e972-0f57-4b3d-a395-49e465f9fb94">
 
 
 ### Step 3: Choose Transducer Model
+In this step, either select a pre-existing transducer model or design custom parameters.
+
+<img width="1020" alt="Screen Shot 2024-02-15 at 7 41 00 AM" src="https://github.com/parkerkotlarz/tFUS_neuronavigation/assets/157265957/a745c355-e311-43e5-923e-5dfe423f8e96">
+
+
 
 
 ### Step 4: Run Acoustic Intensity Calculations
