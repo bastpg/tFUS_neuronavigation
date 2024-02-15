@@ -128,39 +128,14 @@ In this step, either select a pre-existing transducer model or design custom par
 <img width="1020" alt="Screen Shot 2024-02-15 at 7 41 00 AM" src="https://github.com/parkerkotlarz/tFUS_neuronavigation/assets/157265957/a745c355-e311-43e5-923e-5dfe423f8e96">
 
 
-
-
 ### Step 4: Run Acoustic Intensity Calculations
+In this step, pick the number of parallel processing units and indicate the file path. For parallel processing units, we recommend 20 parallel units which gives a pre-computation time of ~0.5 hours for 2500 faces. Computational time will increase with the density of the scalp mesh. Lastly, specify the absolute path for the output folder (using / to separate directories). Then, click "Run."
+
+<img width="757" alt="Screen Shot 2024-02-15 at 7 52 24 AM" src="https://github.com/parkerkotlarz/tFUS_neuronavigation/assets/157265957/255aa677-6050-48db-9e42-b3a910e23b4b">
 
 
-
-
-Follow the steps below,
-1. Load Data
-   - Click "Browse head mask" to load hmask.mat
-   - Click "Browse porosity" to load poro.mat
-   - Click "Browse ASEG" to aseg.mat
-2. Generate Mesh
-   - Click "Generate Head Mesh"
-     - Modify edge length based on desire preferences (Preset of 8 mm)
-   - Click "Remove invalid faces"
-     - Draw a line above the eyes/ears to remove those faces from the mesh
-   - Make sure normals point away from the head
-     - Click "Show Normals" and ensure all red arrows point outward
-     - Additionally click "Invert Normas" and ensure all red arrows point inside the mesh
-3. Choose Transducer Model
-   - Click a preset transducer **or**
-   - Define Transducer Parameters
-     - Focal Distance (mm)
-     - Aperture Diameter (mm)
-     - Distance to Scalp (mm)
-     - Frequency (KHz)
-4. Run Acoustic Intensity Calculations
-   -  Pick the "Number of parallel processing units" (Preset of 10)
-   -  Type the "Simulation folder name," with the full path preferred
-   -  Click "Run"
-  
-   
+### Step 5: Check the Data Output
+The output folder should include four .mat files: app_data, mSOUND_inputs, SOL_Beams, SOL_ScalpMaps. app_data.mat and mSOUND_inputs.mat are both input files into the pre-calculation. SOL_Beams.mat is the largest file (a few GB depending on the density of the mesh) and stores the beam calculations. SOL_ScalpMaps.mat includes the scalp maps generated from the beams.
      
 
 
