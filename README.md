@@ -13,7 +13,7 @@
 This program requires the following dependencies: MATLAB (ver. R2023a), iso2mesh Library, FreeSurfer, and a Linux Environment. For pre-calculation, a minimumm of 8-core CPU and 8 GB of RAM is required (≥20-core CPU and 32 GB of RAM preferred). Whereas the pre-calculation GUI should be run on a large, powerful computer, the planning GUI is best run on a local machine to avoid display lag. We recommend transferring the entire solution dataset on the local machine for a smooth viewing experience.
 
 ## T1 Pre-processing: preprocess_T1.m
-This program requires a T1-weighted MRI Volume for each subject. This script also uses the Freesurfer routine, which to be used within Matlab needs to be sourced on the terminal used to launch Matlab, e.g.: source /usr/local/freesurfer/nmr-dev-env (replace with your Freesurfer installation path).
+This program requires a T1-weighted MRI volume for each subject. This script also uses the Freesurfer routine, which to be used within Matlab needs to be sourced on the terminal used to launch Matlab, e.g.: source /usr/local/freesurfer/nmr-dev-env (replace with your Freesurfer installation path).
 
 Next, ensure the following lines lead to your specific tFUS library, iso2mesh library, and desired T1.
 
@@ -135,7 +135,14 @@ The output folder should include four .mat files: app_data, mSOUND_inputs, SOL_B
      
 
 ## Neuronavigation Planning GUI: planning_GUI_Fin.mlapp
+Whereas the pre-calculation GUI should be run on a large, powerful computer, the planning GUI is best run on a local machine to avoid display lag. I recommend transferring the entire solution dataset on the local machine for a smooth viewing experience.
 
+The main display window is interactive, i.e. if you click on a scalp map position, the display updates to show the transducer and beam at the new location. This capability is active when there are no tools selected (Zoom, Pan, Data Tips etc...). Those tools can be used to freely pan, zoom and rotate the main display window and are available by hovering the mouse in the upper right corner of the display area.
 
-# References
+<img width="907" alt="Screen Shot 2024-02-16 at 8 15 00 AM" src="https://github.com/parkerkotlarz/tFUS_neuronavigation/assets/157265957/db02e5f5-8c0d-4302-addb-981b8dfb747a">
+
+The power distribution and scalp map figures can be saved using the "Save figures" button. This saves two figures in a single Matlab file, which can then be loaded using the load command. The visibility of objects in the scalp map figure can be changed by opening the plot browser in View > Plot Browser:
+
+![image](https://github.com/parkerkotlarz/tFUS_neuronavigation/assets/157265957/7334065e-8be0-4e4e-9f2e-47318d4a194a)
+
 
