@@ -135,7 +135,7 @@ The output folder should include four .mat files: app_data, mSOUND_inputs, SOL_B
      
 
 ## Neuronavigation Planning GUI: planning_GUI_Fin.mlapp
-Whereas the pre-calculation GUI should be run on a large, powerful computer, the planning GUI is best run on a local machine to avoid display lag. I recommend transferring the entire solution dataset on the local machine for a smooth viewing experience.
+Whereas the pre-calculation GUI should be run on a large, powerful computer, the planning GUI is best run on a local machine to avoid display lag. We recommend transferring the entire solution dataset on the local machine for a smooth viewing experience.
 
 The main display window is interactive, i.e. if you click on a scalp map position, the display updates to show the transducer and beam at the new location. This capability is active when there are no tools selected (Zoom, Pan, Data Tips etc...). Those tools can be used to freely pan, zoom and rotate the main display window and are available by hovering the mouse in the upper right corner of the display area.
 
