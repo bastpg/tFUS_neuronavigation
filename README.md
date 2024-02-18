@@ -135,14 +135,25 @@ The output folder should include four .mat files: app_data, mSOUND_inputs, SOL_B
      
 
 ## Neuronavigation Planning GUI: planning_GUI_Fin.mlapp
-Whereas the pre-calculation GUI should be run on a large, powerful computer, the planning GUI is best run on a local machine to avoid display lag. We recommend transferring the entire solution dataset on the local machine for a smooth viewing experience.
+Whereas the pre-calculation GUI should be run on a large, powerful computer, the planning GUI is best run on a local machine to avoid display lag. We recommend transferring the entire solution dataset on the local machine for a smooth viewing experience. 
 
-The main display window is interactive, i.e. if you click on a scalp map position, the display updates to show the transducer and beam at the new location. This capability is active when there are no tools selected (Zoom, Pan, Data Tips etc...). Those tools can be used to freely pan, zoom and rotate the main display window and are available by hovering the mouse in the upper right corner of the display area.
+First, load the folder with the pre-calculation results. You must load the entire folder, rather than individual .mat files. On the bottom of the GUI in red text, the progress of loading the pre-calculation results will be indicated. Then, select the desired nuclei and click "Display scalp map." 
 
-<img width="907" alt="Screen Shot 2024-02-16 at 8 15 00 AM" src="https://github.com/parkerkotlarz/tFUS_neuronavigation/assets/157265957/db02e5f5-8c0d-4302-addb-981b8dfb747a">
+<img width="1063" alt="Screen Shot 2024-02-18 at 12 11 48 PM" src="https://github.com/parkerkotlarz/tFUS_neuronavigation/assets/157265957/864c427b-7094-43c4-a1db-fa3180db5160">
 
-The power distribution and scalp map figures can be saved using the "Save figures" button. This saves two figures in a single Matlab file, which can then be loaded using the load command. The visibility of objects in the scalp map figure can be changed by opening the plot browser in View > Plot Browser:
+The main display window is interactive. The scalp map can me moved either using pre-determined options on the left under "NAVIGATE" or using traditional MATLAB figure controls on the top right of the display. Nuclei visibility can be modified in the bottom left with the light blue nuclei the current target. The head mesh can also be displayed along with only showing a single side of the scalp map. 
 
-![image](https://github.com/parkerkotlarz/tFUS_neuronavigation/assets/157265957/7334065e-8be0-4e4e-9f2e-47318d4a194a)
+<img width="1406" alt="Screen Shot 2024-02-18 at 12 19 34 PM" src="https://github.com/parkerkotlarz/tFUS_neuronavigation/assets/157265957/a8e198d5-d003-4d38-9582-f0fd9d35a694">
 
+Additionally, you can click on a scalp map position and the display upbates the transducer, beam, and intensity bar graph at the new location. MATLAB tools in the upper right corner must be inactivated in order to change the transducer location. For easier positioning of the coil, it is best to click on the outside of the scalp map.
+
+<img width="1394" alt="Screen Shot 2024-02-18 at 12 28 38 PM" src="https://github.com/parkerkotlarz/tFUS_neuronavigation/assets/157265957/f8ce2003-f64b-40d2-ba5d-9a18911153e7">
+
+The power distribution and scalp map figures can be saved using the "Save figures" button. This saves two figures in a single Matlab file, which can then be loaded using the load command. The .mat file saved will be located in the originally loaded folder with the following naming convention: FIG_*NUCLEI*_transd*LOCATIONNUMBER*.mat. For example, a saved figure for the left thalamus at trandsducer location #1505 will be saved as: FIG_LeftThalamus_transd1505.mat. Unlike in the GUI, the transducer location cannot be changed.
+
+<img width="1163" alt="Screen Shot 2024-02-18 at 12 38 07 PM" src="https://github.com/parkerkotlarz/tFUS_neuronavigation/assets/157265957/a7fdcf5a-07d4-4cf2-9833-243818e56337">
+
+The visibility of objects in the scalp map figure can be changed by opening the plot browser in View > Plot Browser:
+
+<img width="1443" alt="Screen Shot 2024-02-18 at 12 41 48 PM" src="https://github.com/parkerkotlarz/tFUS_neuronavigation/assets/157265957/8fe1b0f8-890c-479f-b7fa-faa5697bcbf4">
 
