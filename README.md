@@ -10,7 +10,7 @@
 # Methods
 
 ## Dependencies
-This program requires the following dependencies: MATLAB (ver. R2023a), iso2mesh Library, FreeSurfer, and a Linux Environment. For pre-calculation, a minimumm of 8-core CPU and 8 GB of RAM is required (≥20-core CPU and 32 GB of RAM preferred). Whereas the pre-calculation GUI should be run on a large, powerful computer, the planning GUI is best run on a local machine to avoid display lag. We recommend transferring the entire solution dataset on the local machine for a smooth viewing experience.
+This program requires the following dependencies: MATLAB (ver. R2023a), iso2mesh Library (included in download, GitHub found [here](https://github.com/fangq/iso2mesh)), FreeSurfer, and a Linux Environment. For pre-calculation, a minimumm of 8-core CPU and 8 GB of RAM is required (≥20-core CPU and 32 GB of RAM preferred). Whereas the pre-calculation GUI should be run on a large, powerful computer, the planning GUI is best run on a local machine to avoid display lag. We recommend transferring the entire solution dataset on the local machine for a smooth viewing experience.
 
 ## T1 Pre-processing: preprocess_T1.m
 This program requires a T1-weighted MRI volume for each subject. This script also uses the Freesurfer routine, which to be used within Matlab needs to be sourced on the terminal used to launch Matlab, e.g.: source /usr/local/freesurfer/nmr-dev-env (replace with your Freesurfer installation path).
