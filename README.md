@@ -12,32 +12,19 @@
 ## Dependencies
 This program requires the following dependencies: MATLAB (ver. R2023a), iso2mesh Library (included in download, GitHub found [here](https://github.com/fangq/iso2mesh)), FreeSurfer, and a Linux Environment. For pre-calculation, a minimumm of 8-core CPU and 8 GB of RAM is required (≥20-core CPU and 32 GB of RAM preferred). Whereas the pre-calculation GUI should be run on a large, powerful computer, the planning GUI is best run on a local machine to avoid display lag. We recommend transferring the entire solution dataset on the local machine for a smooth viewing experience.
 
-## T1 Pre-processing: preprocess_T1.m
+## T1 Pre-processing
 This program requires a T1-weighted MRI volume for each subject. This script also uses the Freesurfer routine, which to be used within Matlab needs to be sourced on the terminal used to launch Matlab, e.g.: source /usr/local/freesurfer/nmr-dev-env (replace with your Freesurfer installation path).
 
-Next, ensure the following lines lead to your specific tFUS library, iso2mesh library, and desired T1.
+Next, run SAMSEG (~10 minutes on 10 threads), this creates a segmentation volumes (seg.mgz) used hereafter. In a Linux terminal with Freesurfer sourced, type:
 
 ```MATLAB
-close all;
-clear;
-
-addpath( '/autofs/space/guerin/USneuromod/MBN_GUI/Library' );
-addpath( '/autofs/space/guerin/USneuromod/MBN_GUI/iso2mesh/' );
-
-t1filepath = 'T1.nii.gz';  % the input T1 image (can be any format including *.mgz, *.nii, *.nii.gz etc...)
-nthreads = 10;  % number of threads for SAMSEG
-```
-
-Next, run SAMSEG (~10 minutes on 10 threads), this creates the volumes seg.mgz and input/t1w/r001.mgz used hereafter. 
-
-```MATLAB
-eval( sprintf( '!samseg --t1w %s --o ./ --threads %d --refmode t1w' , t1filepath , nthreads ) );
-!mri_convert input/t1w/r001.mgz T1.nii  
-!mri_convert seg.mgz seg.nii
+mri_convert  <your_T1_volume_name.any_extension>  T1.nii  --conform
+samseg --i T1.nii  --o ./  --threads 10  % adjust the # of threads to your computer' hardware
+mri_convert  seg.mgz  seg.nii
 ```
 
 ### Porosity Option 1: Assume uniform bone porosity (simplest, least accurate)
-Assume uniform bone porosity within the SAMSEG skull mask. Ignores the pores, assumes 100% bone density everywehere in the skull.
+Assume uniform bone porosity within the SAMSEG skull mask. This ignores the pores and assumes 100% bone density everywehere in the skull.
 
 ``` MATLAB
 header = load_nifti( 'seg.nii' );
@@ -48,7 +35,7 @@ save_nifti( header , 'poro.nii' );
 ```
 
 ### Porosity Option 2: Niftiweb pCT tool
-Go to the  [Niftiweb pCT tool](http://niftyweb.cs.ucl.ac.uk/program.php?p=PCT), and upload the transformed T1 from SAMSEG input/t1w/r001.mgz converted to *.nii format as shown below.
+Go to the  [Niftiweb pCT tool](http://niftyweb.cs.ucl.ac.uk/program.php?p=PCT), and upload the transformed T1 volume T1.nii and run the code below in MATLAB:
 
 ```MATLAB
 header = load_nifti( 'pct_0001.nii' );  % load Niftiweb pCT result
@@ -60,7 +47,7 @@ save_nifti( header , 'poro.nii' )
 ```
 
 ### Porosity Option 3: mri-to-ct deep learning tool
-mri-to-ct details can be found [here](https://github.com/MatDagommer/mri-to-ct). The first step is to compute a liberal mask of the skull as shown below (input needed to mri-to-ct)
+mri-to-ct details can be found [here](https://github.com/MatDagommer/mri-to-ct). The first step is to compute a liberal mask of the skull as shown below (input needed to mri-to-ct). In MATLAB:
 
 ```MATLAB
 header = load_mgh( 'seg.nii' );
@@ -71,10 +58,11 @@ header.vol = smask;
 save_nifti( header , 'skull_mask.nii' );  % save skull mask as NIFTI to be used as input to mri-to-ct
 ```
 
+### Create the head mask and prepare input volumes 
 After creating the porosity nifti (poro.nii), run the following lines to create the porosity, head mask, and aseg files.
 
 ```MATLAB
-header = load_mgh( 'seg.nii' );
+header = load_nifti( 'seg.nii' );
 hmask = header.vol > 0;
 hmask = imclose( hmask , strel('sphere',5) );  % close the mask, fill holes and smooth
 for ii = 1 : size(hmask,3)
@@ -100,7 +88,7 @@ save  hmask_resliced.mat  hmask;
 
 
 
-## Pre-Calculation: precalculations_GUI_Fin.mlapp
+## Pre-Calculation GUI
 Start the GUI by running "precalculations_GUI_Fin" in the MATLAB Command Window
 
 <img width="920" alt="Screen Shot 2024-02-09 at 9 35 22 AM" src="https://github.com/parkerkotlarz/tFUS_neuronavigation/assets/157265957/f148ea3f-36ce-40d8-bae4-f0b828fda13c">
@@ -134,7 +122,7 @@ In this step, pick the number of parallel processing units and indicate the file
 The output folder should include four .mat files: app_data, mSOUND_inputs, SOL_Beams, SOL_ScalpMaps. app_data.mat and mSOUND_inputs.mat are both input files into the pre-calculation. SOL_Beams.mat is the largest file (a few GB depending on the density of the mesh) and stores the beam calculations. SOL_ScalpMaps.mat includes the scalp maps generated from the beams.
      
 
-## Neuronavigation Planning GUI: planning_GUI_Fin.mlapp
+## Neuronavigation Planning GUI
 Whereas the pre-calculation GUI should be run on a large, powerful computer, the planning GUI is best run on a local machine to avoid display lag. We recommend transferring the entire solution dataset on the local machine for a smooth viewing experience. 
 
 First, load the folder with the pre-calculation results. You must load the entire folder, rather than individual .mat files. On the bottom of the GUI in red text, the progress of loading the pre-calculation results will be indicated. Then, select the desired nuclei and click "Display scalp map." 
