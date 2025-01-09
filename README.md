@@ -1,8 +1,9 @@
-# tFUS_neuronavigation
+# tFUS Neuronavigation GUI
 
 **Objective:** We develop and disseminate a model-based navigation (MBN) tool for acoustic dose delivery in the presence of skull aberrations that is easy to use by non-specialists.   
 
-**Please cite our paper at:**
+**Please cite our paper:**
+Daneshzand M, Guerin B, Kotlarz P, Chou T, Dougherty DD, Edlow BL, Nummenmaa A. Model-based navigation of transcranial focused ultrasound neuromodulation in humans: Application to targeting the amygdala and thalamus. Brain stimulation. 2024 Jul 1;17(4):958-69.
 
 ![tFUS_gui_figures_v15](https://github.com/parkerkotlarz/tFUS_neuronavigation/assets/157265957/46a368f3-d179-4d93-ac97-166008db5bcd)
 
@@ -145,3 +146,15 @@ The visibility of objects in the scalp map figure can be changed by opening the 
 
 <img width="1443" alt="Screen Shot 2024-02-18 at 12 41 48 PM" src="https://github.com/parkerkotlarz/tFUS_neuronavigation/assets/157265957/8fe1b0f8-890c-479f-b7fa-faa5697bcbf4">
 
+
+# Instructions for Connecting GUI to Localite 
+1. Verify that your Localite software version is 4.0 beta. If it’s not already installed, contact Localite technical support at tmsnavigator@localite.de to obtain this version.
+2. Copy the TMSnavigator-JSON.lap file into the software installation directory.
+3. Ensure the .exe file for the software has the same name as the .lap file you just added, as per the provided instructions.
+4. Data from Localite is transmitted via port #6666. Use the following MATLAB command to connect and read coil positions: interfaceObject = tcpclient('172.20.50.59', 6666, "Timeout", 10); % Replace with the IP address of the Localite system transmitting JSON data
+
+# Instructions for Connecting GUI to Brainsight
+1. Connect the Brainsight system to the MATLAB PC using an Ethernet cable.
+2. On the MATLAB PC, open a command prompt and type: Linux/mac: ssh Brainsight@XXX.local Windows: type this command on the search bar: //XXX.local Replace XXX with the hostname of your Brainsight PC.
+3. On the Brainsight PC, ensure that file sharing is enabled via the "Sharing" system preferences. Check the options under the "Sharing" tab to confirm file sharing settings.
+4. Brainsight updates a .txt file with the transducer position. You can directly read this file into MATLAB for analysis. These steps establish communication between the neuronavigation software and MATLAB, allowing real-time streaming and processing of the transducer location data.
