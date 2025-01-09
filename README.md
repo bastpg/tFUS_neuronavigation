@@ -7,9 +7,6 @@ Daneshzand M, Guerin B, Kotlarz P, Chou T, Dougherty DD, Edlow BL, Nummenmaa A. 
 
 ![tFUS_gui_figures_v15](https://github.com/parkerkotlarz/tFUS_neuronavigation/assets/157265957/46a368f3-d179-4d93-ac97-166008db5bcd)
 
-
-# Methods
-
 ## Dependencies
 This program requires the following dependencies: MATLAB (ver. R2023a), iso2mesh Library (included in download, GitHub found [here](https://github.com/fangq/iso2mesh)), FreeSurfer, and a Linux Environment. For pre-calculation, a minimumm of 8-core CPU and 8 GB of RAM is required (≥20-core CPU and 32 GB of RAM preferred). Whereas the pre-calculation GUI should be run on a large, powerful computer, the planning GUI is best run on a local machine to avoid display lag. We recommend transferring the entire solution dataset on the local machine for a smooth viewing experience.
 
@@ -147,13 +144,13 @@ The visibility of objects in the scalp map figure can be changed by opening the 
 <img width="1443" alt="Screen Shot 2024-02-18 at 12 41 48 PM" src="https://github.com/parkerkotlarz/tFUS_neuronavigation/assets/157265957/8fe1b0f8-890c-479f-b7fa-faa5697bcbf4">
 
 
-# Instructions for Connecting GUI to Localite 
+## Instructions for Connecting GUI to Localite 
 1. Verify that your Localite software version is 4.0 beta. If it’s not already installed, contact Localite technical support at tmsnavigator@localite.de to obtain this version.
 2. Copy the TMSnavigator-JSON.lap file into the software installation directory.
 3. Ensure the .exe file for the software has the same name as the .lap file you just added, as per the provided instructions.
 4. Data from Localite is transmitted via port #6666. Use the following MATLAB command to connect and read coil positions: interfaceObject = tcpclient('172.20.50.59', 6666, "Timeout", 10); % Replace with the IP address of the Localite system transmitting JSON data
 
-# Instructions for Connecting GUI to Brainsight
+## Instructions for Connecting GUI to Brainsight
 1. Connect the Brainsight system to the MATLAB PC using an Ethernet cable.
 2. On the MATLAB PC, open a command prompt and type: Linux/mac: ssh Brainsight@XXX.local Windows: type this command on the search bar: //XXX.local Replace XXX with the hostname of your Brainsight PC.
 3. On the Brainsight PC, ensure that file sharing is enabled via the "Sharing" system preferences. Check the options under the "Sharing" tab to confirm file sharing settings.
