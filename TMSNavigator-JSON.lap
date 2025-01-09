@@ -1,0 +1,33 @@
+-Djava.class.path=lib\TMSNavigator-4.0.0_beta_sprint_2019_06.1.jar;lib\;.
+-DJAVA_HOME=jre
+janel.java.home.path=jre
+janel.java.bundle=JRE
+janel.bin.jvm.dir=server
+janel.main.class=de.localite.apps.navigator.TMSNavigator
+
+# Command line arguments:
+#   -h,--help: Print help.
+#   -n,--navigation_view <grid>: The setting for window grid at navigation mode (2x2|3x3|3x4).
+#   -c,--external_communication <protocol>: The name of protocol used for communication
+#                                           with external devices (NONE|LocaliteJSON).
+#
+# If no arguments are passed the navigation view will be 2x2 windows and
+# no external communication will be established.
+#
+#janel.main.argument=--navigation_view
+#janel.main.argument=2x2
+janel.main.argument=--external_communication
+janel.main.argument=LocaliteJSON
+
+-Dcopyright.year=2019
+-Dlog4j.configuration=log4j.tmsnavigator.properties
+-Dsun.java2d.d3d=true
+-Dlog.files.path=C:\ProgramData\TMSNavigator\logs\errors.log
+-Dworkflow.path=C:\ProgramData\TMSNavigator\logs\workflow.log
+-Dcoil.config.file=C:\ProgramData\TMSNavigator\config\TMSNavigatorCoils6.19.xml
+-Dmni.volume.config.file=C:\ProgramData\TMSNavigator\mniVolumeData\icbm152sym\icbm152symConfiguration.xml
+-Deeg.presets.dir=C:\LOCALITE\TMSNavigator-4.0.0_beta_sprint_2019_06.1\eeg_presets
+-Deeg.export.config.dir=C:\LOCALITE\TMSNavigator-4.0.0_beta_sprint_2019_06.1\eeg_export_configurations
+-Dsoftware.license.path=C:\ProgramData\TMSNavigator\license-keys
+-Xmx5981m
+-Duser.language=en
